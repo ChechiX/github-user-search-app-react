@@ -4,6 +4,9 @@ export const getUserByUsername = async (username) => {
       Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
     },
   });
+  if (!response.ok) {
+    throw new Error(`Failed to fetch user data: ${response.status}`);
+  }
   const data = await response.json();
   console.log(data);
   return data;

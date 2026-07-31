@@ -1,1 +1,83 @@
 @import 'tailwindcss';
+
+@font-face {
+  font-display: swap;
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/SpaceMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/SpaceMono-Bold.woff2') format('woff2');
+}
+
+:root {
+  --neutral-0: #ffffff;
+  --neutral-100: #f6f8ff;
+  --neutral-200: #90a4d4;
+  --neutral-300: #697c9a;
+  --neutral-500: #4b6a9b;
+  --neutral-700: #2b3442;
+  --neutral-800: #1e2a47;
+  --neutral-900: #141d2f;
+  --blue-300: #60abff;
+  --blue-500: #0079ff;
+  --red-500: #f74646;
+}
+
+body {
+  font-family: 'Space Mono';
+  line-height: 1.5;
+}
+
+.text-preset-1 {
+  @apply text-[1.625rem] leading-[1.2] font-bold;
+}
+
+.text-preset-2 {
+  @apply text-[1.375rem] leading-[1.4] font-bold;
+}
+
+.text-preset-3 {
+  @apply text-[1.125rem] leading-[1.4];
+}
+
+.text-preset-3-mobile {
+  @apply text-[0.8125rem] leading-[1.4];
+}
+
+.text-preset-4 {
+  @apply text-[1rem];
+}
+
+.text-preset-5 {
+  @apply text-[1rem] font-bold;
+}
+
+.text-preset-6 {
+  @apply text-[0.9375rem];
+}
+
+.text-preset-7 {
+  @apply text-[0.8125rem];
+}
+
+.text-preset-8 {
+  @apply text-[0.8125rem] font-bold leading-[1.4] tracking-[0.156em];
+}
+
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+input[type='search']:-webkit-autofill {
+  -webkit-text-fill-color: var(--neutral-700);
+  -webkit-box-shadow: 0 0 0px 1000px var(--neutral-0) inset;
+}

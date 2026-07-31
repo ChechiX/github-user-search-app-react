@@ -24,10 +24,6 @@ export const GitHubUserSearchApp = () => {
     retry: false,
   });
 
-  // if (isError) {
-  //   return <NotFound />;
-  // }
-
   return (
     <main className="flex flex-col gap-8">
       <header className="flex justify-between">

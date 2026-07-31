@@ -2,21 +2,19 @@ import { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 
-import { SearchBar } from './components/SearchBar';
-import { NotFound } from './components/NotFound';
+import { SearchBar, NotFound, ProfileSection } from './components';
 
 import moonIcon from './assets/icons/icon-moon.svg';
 
 import { getUserByUsername } from './api/get-user-by-username';
-import { ProfileSection } from './components/ProfileSection';
 
 export const GitHubUserSearchApp = () => {
   const [username, setUsername] = useState('');
 
   const {
     data: user,
-    isFetching,
     isError,
+    isFetching,
   } = useQuery({
     queryKey: ['user', username],
     queryFn: () => getUserByUsername(username),

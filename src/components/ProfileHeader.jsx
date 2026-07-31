@@ -2,14 +2,16 @@ export const ProfileHeader = ({ user, isFetching }) => {
   return (
     <header className="flex gap-5">
       <img
-        className={`rounded-full w-17.5 h-17.5 ${isFetching ? 'animate-pulse bg-red-950 opacity-0' : ''}`}
+        className="rounded-full w-17.5 h-17.5"
         src={user?.avatar_url ?? './src/assets/octocat.png'}
         alt="User avatar"
       />
 
       <div className="flex flex-col gap-1">
         <div className="flex flex-col gap-0.5">
-          <h2 className="text-(--neutral-700) text-preset-1">
+          <h2
+            className={`text-(--neutral-700) text-preset-1 ${isFetching ? 'animate-pulse bg-red-600' : ''}`}
+          >
             {user?.name ?? 'The Octocat'}
           </h2>
 

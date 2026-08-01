@@ -20,6 +20,19 @@ export const GitHubUserSearchApp = () => {
     queryFn: () => getUserByUsername(username),
     enabled: username.length > 0,
     retry: false,
+    placeholderData: {
+      avatar_url: './src/assets/octocat.png',
+      name: 'The Octocat',
+      login: 'octocat',
+      bio: 'This profile has no bio',
+      public_repos: 8,
+      followers: 3938,
+      following: 9,
+      location: 'San Francisco',
+      twitter_username: null,
+      blog: 'https://github.blog',
+      company: '@github',
+    },
   });
 
   return (

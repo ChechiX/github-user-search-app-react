@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 
-import { SearchBar, NotFound, ProfileSection } from './components';
+import { SearchBar, NotFound, ProfileSection, Skeleton } from './components';
 
 import moonIcon from './assets/icons/icon-moon.svg';
 
 import { getUserByUsername } from './api/get-user-by-username';
 
 const DefaultUser = {
-  avatar_url: './src/assets/octocat.png',
+  avatar_url: '/octocat.png',
   name: 'The Octocat',
   login: 'octocat',
   bio: 'This profile has no bio',
@@ -30,7 +30,7 @@ export const GitHubUserSearchApp = () => {
   const {
     data: user,
     isError,
-    isFetching,
+    isLoading,
   } = useQuery({
     queryKey: ['user', normalizedUsername],
     queryFn: () => getUserByUsername(normalizedUsername),
@@ -52,7 +52,9 @@ export const GitHubUserSearchApp = () => {
 
       {!hasUsername ? (
         <ProfileSection user={DefaultUser} />
-      ) : isFetching ? null : isError ? (
+      ) : isLoading ? (
+        <Skeleton />
+      ) : isError ? (
         <NotFound />
       ) : (
         <ProfileSection user={user} />

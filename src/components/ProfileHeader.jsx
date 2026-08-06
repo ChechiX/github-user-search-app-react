@@ -9,12 +9,18 @@ export const ProfileHeader = ({ user }) => {
 
       <div className="flex flex-col gap-1">
         <div className="flex flex-col gap-0.5">
-          <h2 className="text-(--neutral-700) text-preset-1">{user?.name}</h2>
+          <h2 className="text-(--neutral-700) dark:text-(--neutral-0) text-preset-1">
+            {user?.name}
+          </h2>
 
-          <h3 className="text-[#0079FF] text-preset-4">@{user?.login}</h3>
+          <h3 className="text-(--blue-500) dark:text-(--blue-300) text-preset-4">
+            @{user?.login}
+          </h3>
         </div>
 
-        <time className="text-[#4B6A9B] text-preset-6">Joined 25 Jan 2011</time>
+        <time className="text-(--neutral-500) text-preset-6 dark:text-(--neutral-0)">
+          Joined 25 Jan 2011
+        </time>
       </div>
     </header>
   );

@@ -2,25 +2,17 @@ import { useState } from 'react';
 
 import { useQuery } from '@tanstack/react-query';
 
-import { SearchBar, NotFound, ProfileSection, Skeleton } from './components';
-
-import moonIcon from './assets/icons/icon-moon.svg';
+import {
+  SearchBar,
+  NotFound,
+  ProfileSection,
+  Skeleton,
+  Header,
+} from './components';
 
 import { getUserByUsername } from './api/get-user-by-username';
 
-const DefaultUser = {
-  avatar_url: '/octocat.png',
-  name: 'The Octocat',
-  login: 'octocat',
-  bio: 'This profile has no bio',
-  public_repos: 8,
-  followers: 3938,
-  following: 9,
-  location: 'San Francisco',
-  twitter_username: null,
-  blog: 'https://github.blog',
-  company: '@github',
-};
+import { DefaultUser } from './constants/default-user';
 
 export const GitHubUserSearchApp = () => {
   const [username, setUsername] = useState('');
@@ -39,14 +31,8 @@ export const GitHubUserSearchApp = () => {
   });
 
   return (
-    <main className="flex flex-col gap-8 md:max-w-176 md:m-auto">
-      <header className="flex justify-between">
-        <h1 className="text-preset-1">devfinder</h1>
-
-        <button className="uppercase text-[#4B6A9B] text-preset-8 flex gap-3 items-center">
-          Dark <img className="w-5 h-5" src={moonIcon} alt="Theme icon" />
-        </button>
-      </header>
+    <main className="flex flex-col gap-8 md:max-w-176 md:m-auto md:gap-10">
+      <Header />
 
       <SearchBar setUsername={setUsername} />
 

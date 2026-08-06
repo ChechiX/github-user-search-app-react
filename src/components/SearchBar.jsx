@@ -13,7 +13,7 @@ export const SearchBar = ({ setUsername }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex shadow-[0_16px_30px_-10px_rgba(70,96,187,0.1986)] bg-white py-2 px-3 rounded-2xl"
+      className="flex shadow-[0_16px_30px_-10px_rgba(70,96,187,0.1986)] bg-(--neutral-0) py-2 px-3 rounded-2xl md:pl-6 dark:bg-(--neutral-800)"
     >
       <div className="flex items-center gap-2 w-full">
         <img className="block w-5 h-5" src={searchIcon} alt="Search icon" />
@@ -31,7 +31,7 @@ export const SearchBar = ({ setUsername }) => {
 
       <button
         type="submit"
-        className="bg-[#0079FF] py-3 px-5 rounded-2xl text-white text-preset-5"
+        className="bg-[#0079FF] py-3 px-5 rounded-2xl text-white text-preset-5 cursor-pointer hover:bg-(--blue-300)"
       >
         Search
       </button>

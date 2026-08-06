@@ -10,12 +10,10 @@ import {
   Header,
 } from './components';
 
-import { getUserByUsername } from './api/get-user-by-username';
-
-import { DefaultUser } from './constants/default-user';
+import { getUserByUsername } from './api';
 
 export const GitHubUserSearchApp = () => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState('octocat');
   const normalizedUsername = username.trim();
   const hasUsername = normalizedUsername.length > 0;
 
@@ -36,9 +34,7 @@ export const GitHubUserSearchApp = () => {
 
       <SearchBar setUsername={setUsername} />
 
-      {!hasUsername ? (
-        <ProfileSection user={DefaultUser} />
-      ) : isLoading ? (
+      {isLoading ? (
         <Skeleton />
       ) : isError ? (
         <NotFound />

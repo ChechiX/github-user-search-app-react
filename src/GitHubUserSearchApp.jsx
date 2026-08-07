@@ -15,7 +15,6 @@ import { getUserByUsername } from './api';
 export const GitHubUserSearchApp = () => {
   const [username, setUsername] = useState('octocat');
   const normalizedUsername = username.trim();
-  const hasUsername = normalizedUsername.length > 0;
 
   const {
     data: user,
@@ -24,7 +23,6 @@ export const GitHubUserSearchApp = () => {
   } = useQuery({
     queryKey: ['user', normalizedUsername],
     queryFn: () => getUserByUsername(normalizedUsername),
-    enabled: hasUsername,
     retry: false,
   });
 

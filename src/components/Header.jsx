@@ -6,15 +6,18 @@ import sunIcon from '../assets/icons/icon-sun.svg';
 export const Header = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const storedTheme = localStorage.getItem('theme');
-    return storedTheme === 'dark';
+    return (
+      storedTheme === 'dark' ||
+      (!storedTheme &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    );
   });
 
-  console.log(isDarkMode);
-
-  const toggleDarkMode = () => {
+  const toggleTheme = () => {
     setIsDarkMode((prevMode) => {
       const newMode = !prevMode;
       localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', newMode);
       return newMode;
     });
   };
@@ -27,15 +30,15 @@ export const Header = () => {
 
       <button
         className={`uppercase ${isDarkMode ? 'text-(--neutral-200)' : 'text-(--neutral-500)'} text-preset-8 flex gap-3 items-center cursor-pointer`}
-        onClick={toggleDarkMode}
+        onClick={toggleTheme}
       >
         {isDarkMode ? (
           <>
-            Dark <img className="w-5 h-5" src={moonIcon} alt="Theme icon" />
+            Light <img className="w-5 h-5" src={sunIcon} alt="Theme icon" />
           </>
         ) : (
           <>
-            Light <img className="w-5 h-5" src={sunIcon} alt="Theme icon" />
+            Dark <img className="w-5 h-5" src={moonIcon} alt="Theme icon" />
           </>
         )}
       </button>

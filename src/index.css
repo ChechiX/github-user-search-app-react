@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-display: swap;
   font-family: 'Space Mono';

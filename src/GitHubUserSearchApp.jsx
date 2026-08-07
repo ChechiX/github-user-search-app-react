@@ -1,6 +1,4 @@
-import { useState } from 'react';
-
-import { useQuery } from '@tanstack/react-query';
+import { useGitHubSearch } from './hooks';
 
 import {
   SearchBar,
@@ -10,21 +8,8 @@ import {
   Header,
 } from './components';
 
-import { getUserByUsername } from './api';
-
 export const GitHubUserSearchApp = () => {
-  const [username, setUsername] = useState('octocat');
-  const normalizedUsername = username.trim();
-
-  const {
-    data: user,
-    isError,
-    isLoading,
-  } = useQuery({
-    queryKey: ['user', normalizedUsername],
-    queryFn: () => getUserByUsername(normalizedUsername),
-    retry: false,
-  });
+  const { user, isError, isLoading, setUsername } = useGitHubSearch();
 
   return (
     <main className="flex flex-col gap-8 md:max-w-176 md:m-auto md:gap-10">

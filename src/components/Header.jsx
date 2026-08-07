@@ -13,13 +13,19 @@ export const Header = () => {
     );
   });
 
+  if (isDarkMode) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.setItem('theme', 'light');
+  }
+
+  document.documentElement.setAttribute(
+    'data-theme',
+    isDarkMode ? 'dark' : 'light',
+  );
+
   const toggleTheme = () => {
-    setIsDarkMode((prevMode) => {
-      const newMode = !prevMode;
-      localStorage.setItem('theme', newMode ? 'dark' : 'light');
-      document.documentElement.classList.toggle('dark', newMode);
-      return newMode;
-    });
+    setIsDarkMode(!isDarkMode);
   };
 
   return (

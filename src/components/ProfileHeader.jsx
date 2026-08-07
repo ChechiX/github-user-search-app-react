@@ -7,7 +7,7 @@ export const ProfileHeader = ({ user }) => {
         alt="User avatar"
       />
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 md:flex-row md:grow md:justify-between">
         <div className="flex flex-col gap-0.5">
           <h2 className="text-(--neutral-700) dark:text-(--neutral-0) text-preset-1">
             {user.name}
@@ -18,8 +18,16 @@ export const ProfileHeader = ({ user }) => {
           </h3>
         </div>
 
-        <time className="text-(--neutral-500) text-preset-6 dark:text-(--neutral-0)">
-          Joined 25 Jan 2011
+        <time
+          dateTime={user.created_at}
+          className="text-(--neutral-500) text-preset-6 dark:text-(--neutral-0)"
+        >
+          Joined{' '}
+          {new Date(user.created_at).toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+          })}
         </time>
       </div>
     </header>
